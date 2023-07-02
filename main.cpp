@@ -5,8 +5,6 @@
 
 using namespace std;
 
-extern HANDLE hOutput, hOutBuf;
-
 int main(void)
 {
 	Tetris Tetris;
