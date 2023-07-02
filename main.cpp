@@ -2,9 +2,10 @@
 
 #include <iostream>
 #include <conio.h>
-#include <ctime>
 
 using namespace std;
+
+extern HANDLE hOutput, hOutBuf;
 
 int main(void)
 {
@@ -65,7 +66,7 @@ int main(void)
 		//Show map
 		if(currentTime >= showMapTime or currentTime < showMapTime - 10000)
 		{
-			system("cls");
+			//system("cls");
 			Tetris.showMap();
 			showMapTime = currentTime + SHOWPERIOD;
 		}
@@ -78,6 +79,8 @@ int main(void)
 			Tetris.uploadGraph();
 			graphDownTime = currentTime + DOWNPERIOD;
 		}
+
+		//Check if GameOver
 		if (Tetris.GameOver)
 		{
 			break;
