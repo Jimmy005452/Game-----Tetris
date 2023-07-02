@@ -1,4 +1,5 @@
-#include "graph.h"
+#include "Graph.h"
+#include "Buffer.h"
 
 #include <iostream>
 #include <random>
@@ -53,6 +54,7 @@ Tetris::Tetris()
 	score = 0;
 	GameOver = 0;
 	initialParameter();
+	initconsoleScreenBuffer();
 }
 
 void Tetris::initialParameter()
@@ -65,17 +67,7 @@ void Tetris::initialParameter()
 
 void Tetris::showMap()
 {
-	for (int i = 0; i < HEIGHT; i++)
-	{
-		for (int j = 0; j < WEIGHT; j++)
-		{
-			cout << map[i][j];
-		}
-		cout << endl;
-	}
-
-	//Show score
-	cout << "score:" << score;
+	show(map);
 }
 
 bool Tetris::checkCollision(char direction)
@@ -292,7 +284,10 @@ void Tetris::checkGameOver(int y)
 	{
 		if (currentY + y < 0)
 		{
+			//Show score
+			cout << "score:" << score;
 			GameOver = 1;
+			break;
 		}
 	}
 }
