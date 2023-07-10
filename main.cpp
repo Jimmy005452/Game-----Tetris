@@ -19,7 +19,6 @@ int main(void)
 	for (;;)
 	{
 		currentTime = clock();
-		char c;
 		//Read input
 		char input = ';';
 		if (_kbhit())
@@ -64,7 +63,6 @@ int main(void)
 		//Show map
 		if(currentTime >= showMapTime or currentTime < showMapTime - 10000)
 		{
-			//system("cls");
 			Tetris.showMap();
 			showMapTime = currentTime + SHOWPERIOD;
 		}
@@ -84,6 +82,7 @@ int main(void)
 			break;
 		}
 	}
+	
 	
 	return 0;
 }
